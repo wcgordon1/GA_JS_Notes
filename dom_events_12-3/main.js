@@ -40,9 +40,54 @@ btnEl.addEventListener('click', function (event) {
     inputEl.value = ''
 }); // <---- End of the callback function
 
+
+
 const ulEl = document.querySelector('ul')
 ulEl.addEventListener('click', function (event) {
+    console.log(event.target)
+    console.dir(event.target)
     event.target.style.textDecoration = 'line-through';
+    event.target.style.backgroundColor = generateRandomColor();
+
+    //update the element that is beling clicked to have strikeThrough
+
 })
 
-const clickThrough = '';
+//BONUS EXERCISE:::
+// call this function in our loop above, and set a random background color everytime we click an li
+function generateRandomColor() {
+    const r = Math.floor(Math.random() * (256));
+    const g = Math.floor(Math.random() * (256));
+    const b = Math.floor(Math.random() * (256));
+    return `rgb(${r}, ${g}, ${b})`
+}
+
+/*            MY CODE - WRONG - Look immediately below.
+const pageEL = document.querySelector('body');
+pageEL.addEventListener('click', function (event) {
+    console.log(event.target)
+    console.dir(event.target)
+    event.target.style.backgroundColor = generateRandomColor();
+})
+*/
+
+const bodyEl = document.querySelector('body');
+
+bodyEl.addEventListener('click', function (e) {
+
+    console.log(e.currentTarget);
+
+    bodyEl.style.backgroundColor = generateRandomColor();
+})
+/*
+
+const bodyEl = document.querySelector('body');
+
+bodyEl.addEventListener('click', function (e) {
+
+    console.log(e.currentTarget)
+
+    bodyEl.style.backgroundColor = generateRandomColor()
+})
+
+*/
